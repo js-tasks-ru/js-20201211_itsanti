@@ -6,4 +6,13 @@
  */
 export function sortStrings(arr, param = 'asc') {
 
+  const sorted = [...arr];
+  sorted.sort(function (a, b) {
+    const compare = a.localeCompare(b, ['ru', 'eu'], { sensitivity: 'case', caseFirst: 'upper' });
+    return param === 'asc' ? compare : -compare;
+  });
+  return sorted;
+
+
+  
 }
